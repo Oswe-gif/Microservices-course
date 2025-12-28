@@ -12,6 +12,7 @@
 	<artifactId>cards</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cards</name>
+	<packaging>jar</packaging>
 	<description>Microservice for cards</description>
 	<url/>
 	<licenses>
@@ -97,18 +98,6 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
 				<version>2.2.1</version>
@@ -144,6 +133,16 @@
 							<version>${lombok.version}</version>
 						</path>
 					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<to>
+						<image>oswe/${project.artifactId}:s4</image>
+					</to>
 				</configuration>
 			</plugin>
 		</plugins>

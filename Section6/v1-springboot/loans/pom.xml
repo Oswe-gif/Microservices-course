@@ -116,7 +116,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>oswe/${project.artifactId}:s4</name>
+						<name>oswe/${project.artifactId}:s6</name>
 					</image>
 				</configuration>
 			</plugin>
