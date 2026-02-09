@@ -37,11 +37,6 @@
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
-			<version>5.0.0</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-h2console</artifactId>
 		</dependency>
@@ -103,6 +98,11 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
@@ -163,7 +163,7 @@
 				<version>3.5.1</version>
 				<configuration>
 					<to>
-						<image>oswe/${project.artifactId}:s6</image>
+						<image>oswe/${project.artifactId}:s8</image>
 					</to>
 				</configuration>
 			</plugin>

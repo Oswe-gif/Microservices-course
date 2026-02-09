@@ -11,6 +11,7 @@ import com.eazybytes.cards.service.ICardsService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -21,11 +22,11 @@ public class CardsServiceImpl implements ICardsService {
 
     @Override
     public void createCard(String mobileNumber) {
-        repository.findByMobileNumber(mobileNumber).orElseThrow(
-                () -> new CardAlreadyExistsException("Card already registered with given mobileNumber "+mobileNumber)
-        );
-        Cards cards = createNewCard(mobileNumber);
-        repository.save(cards);
+        Optional<Cards> optionalCards= repository.findByMobileNumber(mobileNumber);
+        if(optionalCards.isPresent()){
+            throw new CardAlreadyExistsException("Card already registered with given mobileNumber "+mobileNumber);
+        }
+        repository.save(createNewCard(mobileNumber));
     }
 
     @Override
