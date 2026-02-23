@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: "gatewayserver"
+  # para cargar config de dicho server
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+
+  # Esto nos sirve para que tome la rutas dinamicamente del eureka server, si no lo tuvieramos nosotros tenemos que escribirlas
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: false
+              lowerCaseServiceId: true
+management:
+  # para exponer los endpoints del actuator
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      access: unrestricted
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "gatewayserver"
+    description: "Eazy bank Gateway Server application"
+    version: "1.0.0"
+
+logging:
+  level:
+    com:
+      eazybytes:
+        gatewayserver: DEBUG
