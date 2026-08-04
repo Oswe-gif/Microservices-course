@@ -311,6 +311,7 @@ services:
     environment:
       SPRING_APPLICATION_NAME: "accounts"
       OTEL_SERVICE_NAME: "accounts"
+      SPRING_RABBITMQ_HOST: "rabbit"
     extends:
       file: common-config.yml
       service: microservice-eureka-config
@@ -389,7 +390,7 @@ services:
     extends:
       file: common-config.yml
       service: network-deploy-service
-      
+
   gatewayserver:
     image: "oswe/gatewayserver:s13"
     container_name: gatewayserver-ms
